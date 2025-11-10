@@ -3,6 +3,7 @@ package br.edu.insper.films.common;
 import br.edu.insper.films.common.error.dto.ErrorDTO;
 import br.edu.insper.films.common.error.util.ErrorUtils;
 import br.edu.insper.films.common.exception.IncorrectFieldUsageException;
+import br.edu.insper.films.common.exception.ResourceNotFoundException;
 import org.hibernate.ObjectNotFoundException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -11,7 +12,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 
 @ControllerAdvice
 public class ControllerExceptionHandler {
-    @ExceptionHandler(ObjectNotFoundException.class)
+    @ExceptionHandler(ResourceNotFoundException.class)
     protected ResponseEntity<ErrorDTO> notFound(RuntimeException err) {
         return ErrorUtils.throwNotFound(err);
     }
