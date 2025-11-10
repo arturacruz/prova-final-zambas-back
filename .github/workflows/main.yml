@@ -40,7 +40,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: arturacruz/prova-final-zambas-back:${{ github.sha }}
+          tags: k1llm3pl5/prova-final-zambas-back:${{ github.sha }}
 
       - name: executing remote ssh commands using password
         uses: appleboy/ssh-action@master
@@ -56,4 +56,4 @@ jobs:
              -e MYSQL_PASSWORD=${{ secrets.MYSQL_PASSWORD }} \
              -e MYSQL_HOST=mysql \
              --network=rede --name films \
-             arturacruz/prova-final-zambas-back:${{ github.sha }}
+             k1llm3pl5/prova-final-zambas-back:${{ github.sha }}
